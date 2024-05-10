@@ -2,50 +2,53 @@ package entities;
 
 public class Vetor {
 
-    private Integer x;
-    private Integer y;
-    private Integer z;
+    private Double x;
+    private Double y;
+    private Double z;
 
     public Vetor() {
     }
 
-    public Vetor(Integer x, Integer y) {
+    public Vetor(Double x, Double y) {
         this.x = x;
         this.y = y;
     }
 
-    public Vetor(Integer x, Integer y, Integer z) {
+    public Vetor(Double x, Double y, Double z) {
         this.x = x;
         this.y = y;
         this.z = z;
     }
 
-    public Integer getX() {
+    public Double getX() {
         return x;
     }
 
-    public void setX(Integer x) {
+    public void setX(Double x) {
         this.x = x;
     }
 
-    public Integer getY() {
+    public Double getY() {
         return y;
     }
 
-    public void setY(Integer y) {
+    public void setY(Double y) {
         this.y = y;
     }
 
-    public Integer getZ() {
+    public Double getZ() {
         return z;
     }
 
-    public void setZ(Integer z) {
+    public void setZ(Double z) {
         this.z = z;
     }
 
-    public static int calcularMagnitude(Vetor v1, Vetor v2) {
 
+
+    public static Double calcularMagnitude(Vetor v1, Vetor v2) {
+
+       
         return v1.x * v2.y;
 
     }

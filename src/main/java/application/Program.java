@@ -13,7 +13,7 @@ public class Program {
 
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
-        
+
         // Variável criada para ser usado no Menu
         int opcao;
 
@@ -23,8 +23,6 @@ public class Program {
 
         // Tratamento de exceções
         try {
-
-
 
             // Loop principal do programa. Executa repetidamente até que o usuário escolha sair (opção 10).
             do {
@@ -51,33 +49,35 @@ public class Program {
                     // O usuário irá adicionar um vetor na lista de dois elementos. Será instanciado um obejto a cada repetição
                     case 1:
 
-                        System.out.println("Digite as coordanadas:");
+                        System.out.println("Digite as coordenadas:");
 
                         System.out.print("X: ");
-                        int x2 = sc.nextInt();
+                        double x2 = sc.nextDouble();
 
                         System.out.print("Y: ");
-                        int y2 = sc.nextInt();
-
+                        double y2 = sc.nextDouble();
+                        
+                        double z = 0;
+                        
                         // instancia o objeto e adiciona na lista de dois elementos
-                        vetor2.add(new Vetor(x2, y2));
+                        vetor2.add(new Vetor(x2, y2, z));
 
                         break;
 
                     // O usuário irá adicionar um vetor na lista de três elementos. Será instanciado um objeto a cada repetição
                     case 2:
 
-                        System.out.println("Digite as coordanadas:");
+                        System.out.println("Digite as coordenadas:");
 
                         System.out.print("X: ");
-                        int x3 = sc.nextInt();
+                        double x3 = sc.nextDouble();
 
                         System.out.print("Y: ");
-                        int y3 = sc.nextInt();
+                        double y3 = sc.nextDouble();
 
                         System.out.print("Z: ");
-                        int z3 = sc.nextInt();
-                        
+                        double z3 = sc.nextDouble();
+
                         // instancia o objeto e adiciona na lista de três elementos
                         vetor3.add(new Vetor(x3, y3, z3));
 
@@ -87,24 +87,26 @@ public class Program {
                     case 3:
 
                         // Imprimindo a lista de vetores com dois elementos
+                        System.out.println();
                         System.out.println("Lista de vetores com dois elementos");
-                        
+
                         for (int i = 0; i < vetor2.size(); i++) {
-                            System.out.println((i + 1) + " - " 
-                                    + "(" 
-                                    + vetor2.get(i).getX() 
-                                    + ", " 
+                            System.out.println((i + 1) + " - "
+                                    + "("
+                                    + vetor2.get(i).getX()
+                                    + ", "
                                     + vetor2.get(i).getY() + ");");
                         }
-                        
+
                         System.out.println();
-                        
+
                         // O usuário irá escolher o vetor a ser removido de acordo com a lista apresentada
+                        System.out.println();
                         System.out.println("Escolha qual vetor deseja remover:");
 
                         int remove2 = sc.nextInt();
                         remove2 = remove2 - 1;
-                        
+
                         // remove o vetor selecionado
                         vetor2.remove(remove2);
 
@@ -114,18 +116,19 @@ public class Program {
                     case 4:
 
                         // Imprimindo a lista de vetores com três elementos
+                        System.out.println();
                         System.out.println("Lista de vetores com três elementos");
-                        
+
                         for (int i = 0; i < vetor3.size(); i++) {
-                            System.out.println((i + 1) + " - " 
-                                    + "(" 
-                                    + vetor3.get(i).getX() 
-                                    + ", " 
+                            System.out.println((i + 1) + " - "
+                                    + "("
+                                    + vetor3.get(i).getX()
+                                    + ", "
                                     + vetor3.get(i).getY()
-                                    + ", " 
+                                    + ", "
                                     + vetor3.get(i).getZ() + ");");
                         }
-                        
+
                         System.out.println();
 
                         // O usuário irá escolher o vetor a ser removido de acordo com a lista apresentada
@@ -138,24 +141,45 @@ public class Program {
                         vetor2.remove(remove3);
 
                         break;
-                        
+
                     // Será calculado a magnitudde. A lista será apresentda para escolha dos vetores   
                     case 5:
 
-                        Vetor.calcularMagnitude(vetor2.get(0), vetor2.get(1));
-                        break;
+                        // Imprimindo a lista de vetores com dois elementos
+                                                System.out.println();
+                        System.out.println("Lista de vetores com dois elementos");
+
+                        for (int i = 0; i < vetor2.size(); i++) {
+                            System.out.println((i + 1) + " - "
+                                    + "("
+                                    + vetor2.get(i).getX()
+                                    + ", "
+                                    + vetor2.get(i).getY() + ");");
+                        }
+
                         
+                        System.out.print("Escolha o primeiro vetor: ");
+                        
+                        int vt1 = sc.nextInt();
+                                                System.out.print("Escolha o segundo vetor: ");
+                        int vt2 = sc.nextInt();
+                        
+                        System.out.println();
+                        
+                        System.out.println(Vetor.calcularMagnitude(vetor2.get(vt1 - 1), vetor2.get(vt2 -1)));;
+                        
+                        break;
+
                     // Será calculado o produto escalar entre dois vetores. A lista será apresentada para escolha dos vetores  
                     case 6:
 
                         break;
-                    
+
                     // Será calculado o ângulo entre dois vetores. A lista será apresentada para escolha dos vetores  
-                    
                     case 7:
 
                         break;
-                    
+
                     // Será calculado o vetor ortogonal a um dado vetor. A lista será apresentada para escolha dos vetores    
                     case 8:
 
@@ -165,16 +189,16 @@ public class Program {
                     case 9:
 
                         break;
-                        
+
                     // Mensagem de saída do programa.
                     case 10:
 
-                        System.out.println("Saindo..."); 
+                        System.out.println("Saindo...");
                         break;
-                    
+
                     // Mensagem para opção inválida.
                     default:
-                        System.out.println("Opção inválida!"); 
+                        System.out.println("Opção inválida!");
 
                 }
 
@@ -182,6 +206,10 @@ public class Program {
 
         } catch (InputMismatchException e) {
             System.out.println("Erro: Informe somente números.");
+        } 
+        
+        catch (IndexOutOfBoundsException e) {
+            System.out.println("Erro: Escolha somente items da lista.");
         }
 
         sc.close();
